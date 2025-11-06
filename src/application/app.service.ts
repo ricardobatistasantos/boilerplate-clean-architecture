@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { BaseUseCase } from '@domain/base-use-case.interface';
 import { IAppRepository } from '@domain/repositories/app.repository';
-import { App } from '@domain/entities/app';
+import { App } from '@domain/entities/app.entity';
 
 @Injectable()
 export class AppService implements BaseUseCase<void, App> {
