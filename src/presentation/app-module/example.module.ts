@@ -3,10 +3,10 @@ import { AppController } from './controllers/app.controller';
 import { DatabaseModule } from '@infra/databases/pg-promise/config.module';
 import { AppService } from '@application/app.service';
 import { AppRepository } from '@infra/repositries/app.repository';
-import { RabbitMQModule } from '@infra/queue/queue.module';
+import { QueueModule } from '@infra/queue/queue.module';
 
 @Module({
-  imports: [DatabaseModule, RabbitMQModule],
+  imports: [DatabaseModule, QueueModule],
   controllers: [AppController],
   providers: [
     AppService,

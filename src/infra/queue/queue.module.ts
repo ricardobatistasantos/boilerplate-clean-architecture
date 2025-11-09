@@ -26,4 +26,4 @@ const bullProviders: Provider[] = [
   ],
   exports: ['RABBIT_MQ','BULL_MQ'],
 })
-export class RabbitMQModule { }
+export class QueueModule { }
