@@ -1,15 +1,15 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { BaseUseCase } from '@domain/base-use-case.interface';
 import { IAppRepository } from '@domain/repositories/app.repository';
-import { App } from '@domain/entities/app.entity';
+import { AppResponse } from './dtos/app.response';
 
 @Injectable()
-export class AppService implements BaseUseCase<void, App> {
+export class AppService implements BaseUseCase<void, AppResponse> {
   constructor(
     @Inject('IAppRepository') private readonly appRepository: IAppRepository,
   ) {}
 
-  execute(): Promise<App> {
+  execute(): Promise<AppResponse> {
     return this.appRepository.info();
   }
 }
