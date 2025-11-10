@@ -60,12 +60,3 @@ export class RedisManager {
   }
   
 }
-
-let redisManager: RedisManager = null;
-
-export function getCacheManager(): RedisManager {
-  if (!redisManager) {
-    redisManager = new RedisManager();
-  }
-  return redisManager;
-}

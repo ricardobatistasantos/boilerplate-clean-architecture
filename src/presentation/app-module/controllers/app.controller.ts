@@ -1,12 +1,12 @@
-import { AppService } from '@application/app.service';
+import { AppInfoUseCase } from '@application/user-cases/app-info.use-case';
 import { Controller, Get } from '@nestjs/common';
 
 @Controller('app-info')
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appInfoUseCase: AppInfoUseCase) {}
 
   @Get()
   handler() {
-    return this.appService.execute();
+    return this.appInfoUseCase.execute();
   }
 }

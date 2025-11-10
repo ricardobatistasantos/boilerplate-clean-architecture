@@ -2,8 +2,6 @@ import { Module, Provider } from '@nestjs/common';
 import { RabbitMQMananger } from './rabbit-mq-manager';
 import { BullMqManager } from './bull-mq-manager';
 
-const TOKEN = 'RABBIT_MQ';
-
 const bullProviders: Provider[] = [
   {
     provide: 'BULL_CONNECTION',

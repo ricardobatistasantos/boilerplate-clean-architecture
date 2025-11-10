@@ -1,6 +1,6 @@
 import { AppController } from '@presentation/app-module/controllers/app.controller';
 import { AppRepository } from '@infra/repositries/app.repository';
-import { AppService } from '@application/app.service';
+import { AppService } from '@application/user-cases/app-info.use-case';
 import { Test, TestingModule } from '@nestjs/testing';
 import { ReplicType } from '@infra/databases/pg-promise/connection';
 

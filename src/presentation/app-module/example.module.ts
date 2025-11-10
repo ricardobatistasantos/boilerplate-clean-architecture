@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './controllers/app.controller';
 import { DatabaseModule } from '@infra/databases/pg-promise/config.module';
-import { AppService } from '@application/app.service';
+import { AppInfoUseCase } from '@application/user-cases/app-info.use-case';
 import { AppRepository } from '@infra/repositries/app.repository';
 import { QueueModule } from '@infra/queue/queue.module';
 
@@ -9,8 +9,8 @@ import { QueueModule } from '@infra/queue/queue.module';
   imports: [DatabaseModule, QueueModule],
   controllers: [AppController],
   providers: [
-    AppService,
+    AppInfoUseCase,
     { provide: 'IAppRepository', useClass: AppRepository },
   ],
 })
-export class Example { }
+export class ExampleModule { }
