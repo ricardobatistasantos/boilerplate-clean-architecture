@@ -1,12 +1,12 @@
 import { AppController } from '@presentation/app-module/controllers/app.controller';
 import { AppRepository } from '@infra/repositries/app.repository';
-import { AppService } from '@application/user-cases/app-info.use-case';
+import { AppInfoUseCase } from '@application/user-cases/app-info.use-case';
 import { Test, TestingModule } from '@nestjs/testing';
 import { ReplicType } from '@infra/databases/pg-promise/connection';
 
 describe('AppController', () => {
   let appController: AppController;
-  let appService: AppService;
+  let appService: AppInfoUseCase;
   let mockGetDataBase: jest.Mock;
 
   beforeEach(async () => {
@@ -16,7 +16,7 @@ describe('AppController', () => {
       imports: [],
       controllers: [AppController],
       providers: [
-        AppService,
+        AppInfoUseCase,
         { provide: 'IAppRepository', useClass: AppRepository },
         {
           provide: 'DATABASE_CONNECTION',
@@ -26,7 +26,7 @@ describe('AppController', () => {
     }).compile();
 
     appController = module.get<AppController>(AppController);
-    appService = module.get<AppService>(AppService);
+    appService = module.get<AppInfoUseCase>(AppInfoUseCase);
   });
 
   it('should be defined', () => {
