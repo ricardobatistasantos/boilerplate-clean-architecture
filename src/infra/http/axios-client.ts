@@ -1,20 +1,19 @@
 import { Injectable } from '@nestjs/common';
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from 'axios';
 
 @Injectable()
 export class AxiosClient {
   private readonly client: AxiosInstance;
 
-  constructor() {
+  constructor(config: AxiosRequestConfig) {
     this.client = axios.create({
-      baseURL: process.env.API_BASE_URL || 'localhost', // URL base
-      timeout: 5000, // Tempo limite
+      timeout: 5000,
       headers: {
         'Content-Type': 'application/json',
       },
+      ...config,
     });
 
-    // Configura interceptores
     this.setupInterceptors();
   }
 
